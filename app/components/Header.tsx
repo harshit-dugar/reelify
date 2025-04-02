@@ -15,9 +15,14 @@ function Header() {
     }
     return (
         <div>
-            <button onClick={handleSignOut}>Sign out</button>
-            <Link href="/login">Login</Link>
-            <Link href="/register">Register</Link>
+            {session ? (
+                <button onClick={handleSignOut}>Sign out</button>
+            ) : (
+                <div>
+                    <Link href="/login">Login</Link>
+                    <Link href="/register">Register</Link>
+                </div>
+            )}
         </div>
     )
 }
