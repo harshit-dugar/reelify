@@ -31,7 +31,7 @@ export default function FileUpload({
         onSuccess(res)
     };
     
-    const onUploadStart = () => {
+    const handleOnUploadStart = () => {
         setUploading(true)
         setError(null)
     };
@@ -45,7 +45,7 @@ export default function FileUpload({
 
     const validateFile = (file:File) =>{
         if(fileType === "video"){
-            if(!file.type.startsWith("/video")){
+            if(!file.type.startsWith("video")){
                 setError("File must be Video")
                 return false
             }
@@ -64,7 +64,7 @@ export default function FileUpload({
                 return false
             }
         }
-        return false
+        return true
     }
 
     return (
@@ -72,13 +72,13 @@ export default function FileUpload({
         <IKUpload
             fileName={fileType==="video"? "video":"image"}
             useUniqueFileName={true}
-            responseFields={["tags"]}
             validateFile={validateFile}
             folder={fileType==="video" ? "/videos":"/images"}
             onError={onError}
+            accept={fileType==="video" ? "video/*":"image/*"}
             onSuccess={hanldeSuccess}
             onUploadProgress={onUploadProgress}
-            onUploadStart={onUploadStart}
+            onUploadStart={handleOnUploadStart}
             />
             {
                 uploading && (

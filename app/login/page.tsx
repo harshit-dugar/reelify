@@ -1,28 +1,33 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 "use client"
+import { signIn } from 'next-auth/react'
+import { useRouter } from 'next/navigation'
 import React from 'react'
 
 function Login() {
     const [email, setEmail] = React.useState("")
     const [password, setPassword] = React.useState("")
     const [error, setError] = React.useState("")
+
+    const router = useRouter();
+
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault()
         setError("")
 
         try {
-            const res = await fetch("/api/auth/login", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify({ email, password })
+            const res = await signIn("credentials", {
+                email,
+                password,
+                redirect: false,
             })
-            const data = await res.json()
-            if (!res.ok) {
-                throw new Error("Failed to login")
+            if (!res?.ok) {
+                alert("Invalid credentials")
+                throw new Error("Invalid credentials")
+            }else {
+                alert("Login successful")
+                // Handle successful login (e.g., redirect to dashboard)
+                router.push("/dashboard")
             }
-            // Handle successful login (e.g., redirect to dashboard)
         } catch (error) {
             console.error("Login error:", error)
         }

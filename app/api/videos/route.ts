@@ -37,9 +37,7 @@ export async function POST(req: NextRequest){
         await dbConnect();
         const body = await req.json();
         if(!body.title ||
-            !body.description ||
-            !body.url ||
-            !body.thumbnailUrl
+            !body.description
         ){
             return NextResponse.json(
                 {error: "Missing required fields"},
