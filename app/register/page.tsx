@@ -40,9 +40,10 @@ function Register() {
 
     return (
         <div className='flex flex-col items-center justify-center min-h-screen'>
-            <h1>Register</h1>
+            <h1 className='text-3xl mb-5'>Register</h1>
             <form onSubmit={handleSubmit} className='flex flex-col gap-4'>
                 <input
+                    className='border-2 border-gray-300 p-2 rounded hover:border-gray-500 mb-2'
                     type="email"
                     placeholder="Email"
                     value={email}
@@ -50,6 +51,7 @@ function Register() {
                     required
                 />
                 <input
+                    className='border-2 border-gray-300 p-2 rounded hover:border-gray-500 mb-2'
                     type="password"
                     placeholder="Password"
                     value={password}
@@ -57,6 +59,7 @@ function Register() {
                     required
                 />
                 <input
+                    className='border-2 border-gray-300 p-2 rounded hover:border-gray-500 mb-2'            
                     type="password"
                     placeholder="Confirm Password"
                     value={confirmPassword}

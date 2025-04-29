@@ -10,7 +10,6 @@ interface VdieoData{
     title: string,
     description: string;
     videoUrl: string;
-    thumbnailUrl: string;
 }
 
 export default function VideoUpload(){
@@ -24,14 +23,12 @@ export default function VideoUpload(){
         defaultValues:{
             title:"",
             description:"",
-            videoUrl:"",
-            thumbnailUrl:""
+            videoUrl:""
         }
     })
 
     const handleUploadSucccess = (res: IKUploadResponse) => {
         setValue("videoUrl",res.filePath);
-        setValue("thumbnailUrl",res.thumbnailUrl);
     }
 
     const handleUploadProgress = (progress: number) => {
@@ -54,8 +51,9 @@ export default function VideoUpload(){
             setUploadProgress(0);
             setValue("title","");
             setValue("description","");
-            setValue("videoUrl","");
-            setValue("thumbnailUrl","");                
+            setValue("videoUrl","");   
+            //rediect to dashboard
+            window.location.href = "/dashboard";             
         } catch (error) {
             console.log(error);
             alert("Video upload failed");
@@ -64,8 +62,8 @@ export default function VideoUpload(){
         }
     }
     return(
-        <>
-            <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-4">
+        <div className="flex h-screen items-center justify-center">
+            <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-4   p-4 shadow-[3px_4px_6px_0px_rgba(0,_0,_0,_0.7)]">
                 <div className="flex flex-col gap-2">
                     <label className="text-lg font-semibold">Title</label>
                     <input
@@ -77,7 +75,7 @@ export default function VideoUpload(){
                     {errors.title && <span className="text-red-500">Title is required</span>} 
                 </div>
                 <div className="flex flex-col gap-2">
-                    <label className="text-lg font-semibold">DescriptionL</label>               
+                    <label className="text-lg font-semibold">Description</label>               
                     <input
                         type="text"
                         placeholder="Description"
@@ -110,6 +108,6 @@ export default function VideoUpload(){
                     {loading ? "Uploading..." : "Upload Video"}
                 </button>
             </form>
-        </>
+        </div>
     )
 }

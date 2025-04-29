@@ -1,0 +1,17 @@
+import VideoComponent from "./VideoComponent";
+import { VideoI } from "@/models/Video";
+
+interface VideoFeedType {
+    videos: VideoI[];
+}
+
+
+export default function VideoFeed({ videos }: VideoFeedType) {
+    return(
+        <>
+            {videos.map((video) => (
+                <VideoComponent key={video._id?.toString()} video={video} />
+            ))}
+        </>
+    )
+}

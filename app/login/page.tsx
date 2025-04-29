@@ -35,9 +35,10 @@ function Login() {
 
     return (
         <div className='flex flex-col items-center justify-center min-h-screen'>
-            <h1>Login</h1>
+            <h1 className='text-3xl mb-5'>Login</h1>
             <form onSubmit={handleSubmit} className='flex flex-col gap-4'>
                 <input
+                    className='border-2 border-gray-300 p-2 rounded hover:border-gray-500 mb-2'
                     type="email"
                     placeholder="Email"
                     value={email}
@@ -45,6 +46,7 @@ function Login() {
                     required
                 />
                 <input
+                    className='border-2 border-gray-300 p-2 rounded hover:border-gray-500 mb-2'
                     type="password"
                     placeholder="Password"
                     value={password}
@@ -52,7 +54,7 @@ function Login() {
                     required
                 />
                 {error && <p className='text-red-500'>{error}</p>}
-                <button type="submit">Login</button>
+                <button type="submit" className=''>Login</button>
             </form>
         </div>
     )
