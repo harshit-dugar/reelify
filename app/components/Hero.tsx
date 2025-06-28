@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button"
 import { Shield, Users, Zap } from "lucide-react"
-
+import AnimatedCounter from "./motions/AnimatedCounter"
+import { motion } from "motion/react"
 
 function Hero() {
   return (
@@ -53,15 +54,21 @@ function Hero() {
         {/* Stats */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16 animate-fade-in delay-1000">
           <div className="text-center">
-            <div className="text-3xl font-bold text-purple-400 mb-2">10K+</div>
+            <div className="text-3xl font-bold text-purple-400 mb-2">
+              <AnimatedCounter targetNumber={10000} />
+            </div>
             <div className="text-gray-400">Active Creators</div>
           </div>
           <div className="text-center">
-            <div className="text-3xl font-bold text-pink-400 mb-2">1M+</div>
+            <div className="text-3xl font-bold text-pink-400 mb-2">
+              <AnimatedCounter targetNumber={100000} />
+            </div>
             <div className="text-gray-400">Reels Shared</div>
           </div>
           <div className="text-center">
-            <div className="text-3xl font-bold text-purple-300 mb-2">$500K+</div>
+            <div className="text-3xl font-bold text-purple-300 mb-2">
+              $<AnimatedCounter targetNumber={10000} />
+            </div>
             <div className="text-gray-400">Creator Earnings</div>
           </div>
         </div>

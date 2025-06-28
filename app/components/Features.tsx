@@ -1,7 +1,7 @@
+
 import { Shield, Coins, Users, Zap, Lock, Globe } from "lucide-react";
 
-function Features() {
-  const features = [
+const features = [
     {
       icon: Shield,
       title: "Fully Decentralized",
@@ -39,6 +39,8 @@ function Features() {
       color: "text-cyan-400"
     }
   ];
+function Features() {
+  
   return (
     <div className="py-20 px-4 relative bg-gradient-to-b from-transparent to-black/30">
       <div className="max-w-7xl mx-auto">
@@ -53,7 +55,17 @@ function Features() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {features.map((feature, index) => (
+          <FeaturesList />
+        </div>
+      </div>
+    </div>
+  )
+}
+
+function FeaturesList(){
+  return(
+    <>
+    {features.map((feature, index) => (
             <div 
               key={index}
               className="group p-6 bg-black/20 backdrop-blur-sm rounded-2xl border border-purple-500/20 hover:bg-purple-900/20 hover:border-purple-400/40 transition-all duration-300 transform hover:scale-105 animate-fade-in"
@@ -66,9 +78,7 @@ function Features() {
               <p className="text-gray-300 leading-relaxed">{feature.description}</p>
             </div>
           ))}
-        </div>
-      </div>
-    </div>
+    </>
   )
 }
 
