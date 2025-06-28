@@ -1,6 +1,5 @@
 "use client";
 
-import { useSession } from "next-auth/react";
 import Hero from "./components/Hero";
 import Navbar from "./components/Navbar/Navbar";
 import DashPreview from "./components/DashPreview";
@@ -10,9 +9,9 @@ import Footer from "./components/Footer";
 export default function Home() {
 
   return (
-    <div className="min-h-screen  overflow-x-hidden">
+    <div className="min-h-screen overflow-x-hidden">
       <Navbar />
-      <div>
+      <div className="pt-16">
         <Hero />
         <DashPreview />
         <Features />

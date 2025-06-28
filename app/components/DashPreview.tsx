@@ -14,7 +14,7 @@ function DashPreview() {
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-5xl font-bold mb-6">
-            Your Creative 
+            Your Creative Board
             <span className="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent"> Dashboard</span>
           </h2>
           <p className="text-lg text-gray-300 max-w-3xl mx-auto">
