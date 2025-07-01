@@ -1,4 +1,9 @@
-
+import { useRef } from "react"
+import {
+  motion,
+  useScroll,
+  useTransform,
+} from "motion/react"
 import { Shield, Coins, Users, Zap, Lock, Globe } from "lucide-react";
 
 const features = [
@@ -53,32 +58,41 @@ function Features() {
             Experience the freedom of true ownership and control over your creative content
           </p>
         </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          <FeaturesList />
+        <div className="h-screen overflow-y-scroll snap-y snap-mandatory">
+        {features.map((feature, index) => (
+          <FeatureCard key={index} feature={feature} />
+        ))}
         </div>
       </div>
     </div>
   )
 }
 
-function FeaturesList(){
-  return(
-    <>
-    {features.map((feature, index) => (
-            <div 
-              key={index}
-              className="group p-6 bg-black/20 backdrop-blur-sm rounded-2xl border border-purple-500/20 hover:bg-purple-900/20 hover:border-purple-400/40 transition-all duration-300 transform hover:scale-105 animate-fade-in"
-              style={{ animationDelay: `${index * 200}ms` }}
-            >
-              <div className={`${feature.color} mb-4 group-hover:scale-110 transition-transform duration-300`}>
-                <feature.icon className="w-8 h-8" />
-              </div>
-              <h3 className="text-xl font-semibold mb-3 text-white">{feature.title}</h3>
-              <p className="text-gray-300 leading-relaxed">{feature.description}</p>
-            </div>
-          ))}
-    </>
+function FeatureCard(
+  { feature }: { feature: typeof features[number] }
+) {
+  const ref = useRef(null)
+  const { scrollYProgress } = useScroll({ target: ref, offset: ["start end", "center center"] })
+  const y = useTransform(scrollYProgress, [0, 1], [100, 0])
+  const opacity = useTransform(scrollYProgress, [0, 0.8], [0, 1])
+
+  return (
+    <section
+      ref={ref}
+      className="h-screen snap-start flex items-center justify-center  px-6"
+    >
+      <motion.div
+        className="text-center max-w-lg border group p-6 bg-black/20 backdrop-blur-sm rounded-2xl border-purple-500/20 hover:bg-purple-900/20 hover:border-purple-400/40 transition-all duration-300 transform hover:scale-105 animate-fade-in"
+      >
+        <div className={`${feature.color} mb-4`}>
+          <feature.icon className="w-12 h-12 mx-auto" />
+        </div>
+        <h3 className="text-3xl font-bold text-white mb-4">
+          {feature.title}
+        </h3>
+        <p className="text-gray-300">{feature.description}</p>
+      </motion.div>
+    </section>
   )
 }
 

@@ -1,7 +1,6 @@
 import { Button } from "@/components/ui/button"
 import { Shield, Users, Zap } from "lucide-react"
 import AnimatedCounter from "./motions/AnimatedCounter"
-import { motion } from "motion/react"
 
 function Hero() {
   return (
