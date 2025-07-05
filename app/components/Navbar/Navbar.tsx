@@ -28,7 +28,7 @@ function Navbar() {
               Home
             </Link>
             <Link 
-              href="/dashboard" 
+              href="/comingsoondash" 
               className="text-white hover:text-purple-300 transition-colors font-medium"
             >
               Dashboard
@@ -67,7 +67,7 @@ function Navbar() {
                 Home
               </Link>
               <Link
-                href="/dashboard"
+                href="/comingsoondash"
                 className="block px-3 py-2 text-white hover:text-purple-300 hover:bg-purple-900/20 rounded-md transition-colors font-medium"
                 onClick={() => setMenuOpen(false)}
               >
