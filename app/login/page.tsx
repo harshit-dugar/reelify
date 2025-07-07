@@ -56,6 +56,9 @@ function Login() {
                 {error && <p className='text-red-500'>{error}</p>}
                 <button type="submit" className=''>Login</button>
             </form>
+            <p className='mt-4'>
+                Don&apos;t have an account? <a href="/register" className='text-blue-500 hover:underline'>Register</a>
+            </p>
         </div>
     )
 }
