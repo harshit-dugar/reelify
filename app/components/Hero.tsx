@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button"
 import { Shield, Users, Zap } from "lucide-react"
 import AnimatedCounter from "./motions/AnimatedCounter"
+import Link from "next/link"
 
 function Hero() {
   return (
@@ -42,12 +43,14 @@ function Hero() {
 
         {/* CTA buttons */}
         <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in delay-700">
+          <Link href="/comingsoondash" className="w-full sm:w-auto">
           <Button
             size="lg" 
             className="bg-gradient-to-r from-violet-600 to-pink-700 hover:from-violet-700 hover:to-pink-700 text-white px-8 py-4 rounded-full text-lg font-semibold transform hover:scale-105 transition-all duration-300 cursor-grab"
           >
             Launch Dashboard
           </Button>
+          </Link>
         </div>
 
         {/* Stats */}
