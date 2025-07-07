@@ -1,12 +1,13 @@
 "use client"
 
+import Footer from "../components/Footer"
 import Navbar from "../components/Navbar/Navbar"
 
 export default function ComingSoonDash (){
     return(
-        <div className="min-h-screen overflow-x-hidden flex flex-col items-center justify-center">
+        <div className="h-screen flex flex-col ">
             <Navbar />
-            <div className="flex flex-col items-center justify-center px-4">
+            <div className="flex flex-col items-center justify-center px-4 min-h-screen">
                 {/* Background */}
                 <div className="absolute inset-0">
                     <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-purple-500/20 rounded-full blur-3xl animate-pulse"></div>
@@ -22,6 +23,7 @@ export default function ComingSoonDash (){
                 
                 </div>
             </div>
+            <Footer />
         </div>
     )
 }

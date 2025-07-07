@@ -37,11 +37,13 @@ function Navbar() {
 
           {/* Desktop Get Started Button */}
           <div className="hidden md:block">
+            <Link href='/dashboard'>
             <Button 
-              className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white font-semibold px-6 py-2 rounded-full transform hover:scale-105 transition-all duration-300"
+              className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white font-semibold px-6 py-2 rounded-full transform hover:scale-105 transition-all duration-300 cursor-grab"
             >
               Get Started
             </Button>
+            </Link>
           </div>
 
           {/* Mobile menu button */}
