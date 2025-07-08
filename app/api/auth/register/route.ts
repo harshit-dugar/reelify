@@ -4,9 +4,9 @@ import User from "@/models/User";
 
 export async function POST(request: NextRequest){
     try {
-        const {email, password} = await request.json();
+        const {email, password,userName} = await request.json();
         
-        if(!email || !password) {
+        if(!email || !password || !userName) {
             console.log("Email and password are required");            
             return NextResponse.json({error: "Email and password are required"}, {status: 400});
         }
@@ -21,7 +21,8 @@ export async function POST(request: NextRequest){
         //create new user
         await User.create({
             email,
-            password
+            password,
+            userName
         });
         return NextResponse.json({message: "User created successfully"});
 
