@@ -1,12 +1,16 @@
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Play, Heart, MessageCircle, Share, TrendingUp, Eye, Users } from "lucide-react";
+import Demo1 from "./../../public/demo1.jpeg"
+import Demo2 from "./../../public/demo2.jpeg"
+import Demo3 from "./../../public/demo3.jpeg"
+import Image from "next/image";
 
 function DashPreview() {
   const mockReels = [
-    { id: 1, title: "Sunset Vibes", views: "12.5K", likes: "2.1K", creator: "Alice" },
-    { id: 2, title: "Urban Dance", views: "8.7K", likes: "1.5K", creator: "Bob" },
-    { id: 3, title: "Nature Walk", views: "15.2K", likes: "3.2K", creator: "Carol" },
+    { id: 1, title: "Sunset Vibes", views: "12.5K", likes: "2.1K", creator: "Alice",image:Demo1},
+    { id: 2, title: "Urban Dance", views: "8.7K", likes: "1.5K", creator: "Bob",image:Demo2 },
+    { id: 3, title: "Nature Walk", views: "15.2K", likes: "3.2K", creator: "Carol",image:Demo3 },
   ];
 
   return (
@@ -86,8 +90,11 @@ function DashPreview() {
                 style={{ animationDelay: `${800 + index * 200}ms` }}
               >
                 {/* Video Thumbnail */}
-                <div className="relative aspect-video bg-gradient-to-br from-purple-600/30 to-pink-600/30 flex items-center justify-center">
-                  <Play className="w-12 h-12 text-white/80 group-hover:scale-110 transition-transform duration-300" />
+                <div className="relative aspect-video overflow-hidden flex items-center justify-center">
+                  <Image src={reel.image} alt={reel.title} fill className="object-cover" />
+                  <div className="absolute inset-0 bg-black/30 flex items-center justify-center">
+                    <Play className="w-12 h-12 text-white/80 group-hover:scale-110 transition-transform duration-300" />
+                  </div>
                   <div className="absolute top-3 right-3 bg-black/50 rounded-full px-2 py-1 text-xs text-white">
                     {reel.views}
                   </div>

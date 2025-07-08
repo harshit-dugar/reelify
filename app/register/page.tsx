@@ -6,6 +6,7 @@ import React, { useState } from 'react'
 function Register() {
     const router = useRouter();
     const [email, setEmail] = useState("")
+    const [userName, setUserName] = useState("")
     const [password, setPassword] = useState("")
     const [confirmPassword, setConfirmPassword] = useState("")
     const [error, setError] = useState("")
@@ -25,7 +26,7 @@ function Register() {
                 headers: {
                     "Content-Type": "application/json"
                 },
-                body: JSON.stringify({ email, password })
+                body: JSON.stringify({ email, password, userName })
             })
             const data = await res.json()
             if (!res.ok) {
@@ -48,6 +49,14 @@ function Register() {
                     placeholder="Email"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
+                    required
+                />
+                <input
+                    className='border-2 border-gray-300 p-2 rounded hover:border-gray-500 mb-2'
+                    type="text"
+                    placeholder="Username"
+                    value={userName}
+                    onChange={(e) => setUserName(e.target.value)}
                     required
                 />
                 <input
