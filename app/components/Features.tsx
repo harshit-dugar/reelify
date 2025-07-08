@@ -1,8 +1,6 @@
 import { useRef } from "react"
 import {
-  motion,
-  useScroll,
-  useTransform,
+  motion
 } from "motion/react"
 import { Shield, Coins, Users, Zap, Lock, Globe } from "lucide-react";
 
@@ -72,9 +70,6 @@ function FeatureCard(
   { feature }: { feature: typeof features[number] }
 ) {
   const ref = useRef(null)
-  const { scrollYProgress } = useScroll({ target: ref, offset: ["start end", "center center"] })
-  const y = useTransform(scrollYProgress, [0, 1], [100, 0])
-  const opacity = useTransform(scrollYProgress, [0, 0.8], [0, 1])
 
   return (
     <section
