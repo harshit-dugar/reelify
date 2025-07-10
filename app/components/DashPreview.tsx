@@ -5,6 +5,7 @@ import Demo1 from "./../../public/demo1.jpeg"
 import Demo2 from "./../../public/demo2.jpeg"
 import Demo3 from "./../../public/demo3.jpeg"
 import Image from "next/image";
+import AnimatedFadeUp from "./motions/FadeUp";
 
 function DashPreview() {
   const mockReels = [
@@ -84,6 +85,8 @@ function DashPreview() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {mockReels.map((reel, index) => (
+              <AnimatedFadeUp key={reel.id} delay={index * 0.2}>
+                {/* Reel Card */}
               <div 
                 key={reel.id}
                 className="group bg-black/20 rounded-2xl border border-purple-500/20 overflow-hidden hover:bg-purple-900/20 hover:border-purple-400/40 transition-all duration-300 transform hover:scale-105"
@@ -123,6 +126,7 @@ function DashPreview() {
                   </div>
                 </div>
               </div>
+              </AnimatedFadeUp>
             ))}
           </div>
         </div>

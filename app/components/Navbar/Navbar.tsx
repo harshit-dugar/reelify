@@ -76,12 +76,14 @@ function Navbar() {
                 Dashboard
               </Link>
               <div className="px-3 py-2">
-                <Button 
-                  className="w-full bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white font-semibold py-2 rounded-full"
-                  onClick={() => setMenuOpen(false)}
-                >
-                  Get Started
-                </Button>
+                <Link href='/dashboard'>
+                  <Button 
+                    className="w-full bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white font-semibold py-2 rounded-full"
+                    onClick={() => setMenuOpen(false)}
+                  >
+                    Get Started
+                  </Button>
+                </Link>
               </div>
             </div>
           </div>
