@@ -1,12 +1,9 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 import {
-    ImageKitAbortError,
-    ImageKitInvalidRequestError,
-    ImageKitServerError,
-    ImageKitUploadNetworkError,
     upload,
 } from "@imagekit/next";
-import { useRef, useState } from "react";
+import {  useState } from "react";
 import { Loader2 } from "lucide-react";
 
 interface FileUploadProp{
@@ -23,30 +20,30 @@ export default function FileUpload({
     const [uploading,setUploading] = useState(false)
     const [error,setError] = useState<string | null>(null)
 
-    const onError = (err: {message: string}) => {
-        console.log("Error", err);
-        setError(err.message)
-        setUploading(false)
-    };
+    // const onError = (err: {message: string}) => {
+    //     console.log("Error", err);
+    //     setError(err.message)
+    //     setUploading(false)
+    // };
     
-    const hanldeSuccess = (res: any) => {
-        console.log("Success", res);
-        setUploading(false)
-        setError(null)
-        onSuccess(res)
-    };
+    // const hanldeSuccess = (res: any) => {
+    //     console.log("Success", res);
+    //     setUploading(false)
+    //     setError(null)
+    //     onSuccess(res)
+    // };
     
-    const handleOnUploadStart = () => {
-        setUploading(true)
-        setError(null)
-    };
+    // const handleOnUploadStart = () => {
+    //     setUploading(true)
+    //     setError(null)
+    // };
     
-    const onUploadProgress = (evt: ProgressEvent) => {
-        if(evt.lengthComputable && onProgress){
-            const percentComplete = (evt.loaded / evt.total)*100;
-            onProgress(Math.round(percentComplete))
-        }
-    };
+    // const onUploadProgress = (evt: ProgressEvent) => {
+    //     if(evt.lengthComputable && onProgress){
+    //         const percentComplete = (evt.loaded / evt.total)*100;
+    //         onProgress(Math.round(percentComplete))
+    //     }
+    // };
 
     const validateFile = (file:File) =>{
         if(fileType === "video"){
