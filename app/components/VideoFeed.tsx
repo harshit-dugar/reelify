@@ -10,7 +10,7 @@ export default function VideoFeed({ videos }: VideoFeedType) {
     return(
         <>
             {videos.map((video) => (
-                <VideoComponent key={video._id?.toString()} video={video} />
+                <VideoComponent key={video.videoUrl?.toString()} video={video} />
             ))}
         </>
     )

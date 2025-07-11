@@ -23,9 +23,13 @@ export default function Dashboard(){
 
     return (
         <>
-            <div className="flex flex-row items-center justify-around mt-4">
-                <VideoFeed videos={videos} />
-                <VideoUpload />
+            <div className="flex flex-col md:flex-row items-start md:items-center justify-center gap-2 mt-4 px-4">
+                <div className="w-full md:w-2/3">
+                    <VideoFeed videos={videos} />
+                </div>
+                <div className="w-full md:w-1/3">
+                    <VideoUpload />
+                </div>
             </div>
         </>
     )

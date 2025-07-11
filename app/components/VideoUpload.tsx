@@ -1,9 +1,9 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client"
 
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import FileUpload from "./FileUpload";
-import { IKUploadResponse } from "imagekitio-next/dist/types/components/IKUpload/props";
 import { apiClient } from "@/util/api-client";
 
 interface VdieoData{
@@ -27,7 +27,7 @@ export default function VideoUpload(){
         }
     })
 
-    const handleUploadSucccess = (res: IKUploadResponse) => {
+    const handleUploadSucccess = (res: any) => {
         setValue("videoUrl",res.filePath);
     }
 

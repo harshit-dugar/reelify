@@ -4,6 +4,7 @@ export type VideoData = Omit<VideoI, "_id">
 
 type FetchOptions = {
     method?: "GET" | "POST" | "PUT" | "DELETE";
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     body?: any;
     headers?: Record<string, string>;
 }
