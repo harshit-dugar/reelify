@@ -2,6 +2,7 @@
 import { signIn } from 'next-auth/react'
 import { useRouter } from 'next/navigation'
 import React from 'react'
+import Footer from '../components/Footer'
 
 function Login() {
     const [email, setEmail] = React.useState("")
@@ -59,6 +60,7 @@ function Login() {
             <p className='mt-4'>
                 Don&apos;t have an account? <a href="/register" className='text-blue-500 hover:underline'>Register</a>
             </p>
+            <Footer />
         </div>
     )
 }
