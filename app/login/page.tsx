@@ -35,6 +35,7 @@ function Login() {
     }
 
     return (
+        <>
         <div className='flex flex-col items-center justify-center min-h-screen'>
             <h1 className='text-3xl mb-5'>Login</h1>
             <form onSubmit={handleSubmit} className='flex flex-col gap-4'>
@@ -59,9 +60,10 @@ function Login() {
             </form>
             <p className='mt-4'>
                 Don&apos;t have an account? <a href="/register" className='text-blue-500 hover:underline'>Register</a>
-            </p>
-            <Footer />
+            </p>            
         </div>
+        <Footer />
+        </>
     )
 }
 
