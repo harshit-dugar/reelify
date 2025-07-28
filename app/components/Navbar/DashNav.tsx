@@ -24,7 +24,7 @@ function DashNav() {
         <div className="mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex items-center justify-between h-16">
             {/* Logo */}
-            <Link href="/" className="flex items-center space-x-2 hover:opacity-80 transition-opacity">
+            <Link href="/dashboard" className="flex items-center space-x-2 hover:opacity-80 transition-opacity">
                 <span className="text-xl font-bold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
                 Reelify
                 </span>
@@ -33,7 +33,7 @@ function DashNav() {
             {/* Desktop Navigation */}
             <div className="hidden md:flex items-center space-x-8">
                 <Link 
-                href="/" 
+                href="/dashboard" 
                 className="text-white hover:text-purple-300 transition-colors font-medium"
                 >
                 Home
@@ -84,7 +84,7 @@ function DashNav() {
             <div className="md:hidden">
                 <div className="px-2 pt-2 pb-3 space-y-1 bg-black/50 backdrop-blur-md rounded-lg mt-2">
                 <Link
-                    href="/"
+                    href="/dashboard"
                     className="block px-3 py-2 text-white hover:text-purple-300 hover:bg-purple-900/20 rounded-md transition-colors font-medium"
                     onClick={() => setMenuOpen(false)}
                 >
@@ -98,14 +98,23 @@ function DashNav() {
                     Dashboard
                 </Link>
                 <div className="px-3 py-2">
-                    <Link href='/dashboard'>
-                    <Button 
-                        className="w-full bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white font-semibold py-2 rounded-full"
-                        onClick={() => setMenuOpen(false)}
-                    >
-                        Get Started
-                    </Button>
-                    </Link>
+                    {session ?(
+                        <Button 
+                        onClick={handleSignOut}
+                        className="w-full bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white font-semibold py-2 rounded-full cursor-grab"
+                        >
+                        Sign Out
+                        </Button>
+                    ):(
+                        <Link href='/dashboard'>
+                            <Button 
+                            className="w-full bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white font-semibold py-2 rounded-full"
+                            onClick={() => setMenuOpen(false)}
+                            >
+                            Get Started
+                            </Button>
+                        </Link>
+                    )}
                 </div>
                 </div>
             </div>
