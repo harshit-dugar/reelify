@@ -2,6 +2,7 @@
 "use client"
 import { useRouter } from 'next/navigation'
 import React, { useState } from 'react'
+import Footer from '../components/Footer';
 
 function Register() {
     const router = useRouter();
@@ -40,6 +41,7 @@ function Register() {
     }
 
     return (
+        <>
         <div className='flex flex-col items-center justify-center min-h-screen'>
             <h1 className='text-3xl mb-5'>Register</h1>
             <form onSubmit={handleSubmit} className='flex flex-col gap-4'>
@@ -79,6 +81,8 @@ function Register() {
                 <button type="submit">Register</button>
             </form>
         </div>
+        <Footer />
+        </>
     )
 }
 
