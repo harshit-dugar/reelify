@@ -10,7 +10,7 @@ export default function VideoComponent({video}: {video: VideoI}){
                 <div className="flex flex-col items-center justify-center ">
                     <div className="w-full max-w-xl aspect-video">
                     <Video
-                        urlEndpoint="https://ik.imagekit.io/harshitdugar"
+                        urlEndpoint="https://ik.imagekit.io/harshit21"
                         src={`/${video.videoUrl}`}
                         controls
                         className="w-full h-full object-contain"
