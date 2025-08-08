@@ -6,6 +6,7 @@ import VideoUpload from "../components/VideoUpload"
 import { VideoI } from "@/models/Video";
 import { apiClient } from "@/util/api-client";
 import DashNav from "../components/Navbar/DashNav";
+import { useSession } from "next-auth/react";
 
 export default function Dashboard(){
     const [videos, setVideos] = useState<VideoI[]>([]);
@@ -22,14 +23,16 @@ export default function Dashboard(){
         fetchVideos();
     },[])
 
+    const {data:session} = useSession()
     return (
         <>
             <DashNav />
             <div className="flex flex-col md:flex-row items-start md:items-center justify-center gap-2 mt-4 px-4 pt-12">
-                <div className="w-full md:w-2/3">
+                <div className="w-full md:w-2/3 overflow-y-scroll h-screen">
                     <VideoFeed videos={videos} />
                 </div>
                 <div className="w-full md:w-1/3">
+                <p>Welcome: {session?.user.email}</p>
                     <VideoUpload />
                 </div>
             </div>

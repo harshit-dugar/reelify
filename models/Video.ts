@@ -9,6 +9,9 @@ export interface VideoI {
     title: string;
     description: string;
     videoUrl: string;
+    uploadedBy:mongoose.Schema.Types.ObjectId;
+    likes:number;
+    views:number;
     _id?: mongoose.Types.ObjectId;
     createdAt?: Date;
     control?: boolean;
@@ -23,7 +26,11 @@ const VideoSchema = new mongoose.Schema<VideoI>({
     title: {type: String, required: true},
     description: {type: String, required: true},
     videoUrl: {type: String,required: true},
+
+    uploadedBy: { type: mongoose.Schema.Types.ObjectId, ref: "User", required: true },
     control: {type: Boolean, default: false},
+    likes: { type: Number, default: 0 },
+    views: { type: Number, default: 0 },
     transformation: {
         width: {type: Number, required: true,default: VIDEO_DIMENSION.width},
         height: {type: Number, required: true, default: VIDEO_DIMENSION.height},

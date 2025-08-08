@@ -1,6 +1,17 @@
 import { VideoI } from "@/models/Video";
+import mongoose from "mongoose";
 
-export type VideoData = Omit<VideoI, "_id">
+interface VideoData {
+    title: string;
+    description: string;
+    videoUrl: string;
+    uploadedBy: mongoose.Schema.Types.ObjectId;
+    likes: number;
+    views: number;
+}
+
+// What we send when creating a video
+type CreateVideoRequest = Omit<VideoData, "uploadedBy">;
 
 type FetchOptions = {
     method?: "GET" | "POST" | "PUT" | "DELETE";
@@ -40,7 +51,7 @@ class ApiClient{
         return this.fetch<VideoI>(`/videos/${id}`);
     }
 
-    async createVideo(videoData: VideoData) {
+    async createVideo(videoData: CreateVideoRequest) {
         return this.fetch<VideoI>("/videos", {
             method: "POST",
             body: videoData,
