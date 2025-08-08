@@ -19,6 +19,7 @@ export default function VideoComponent({video}: {video: VideoI}){
                 </div>
             {/* </Link> */}
             <div className="flex flex-col items-center justify-center mt-2">
+                {/* <p className="text-sm md:text-base text-gray-500">By:{video.uploadedBy}</p> */}
                 <h2 className="text-lg md:text-xl font-bold">{video.title}</h2>
                 <p className="text-sm md:text-base text-gray-500">{video.description}</p>
             </div>

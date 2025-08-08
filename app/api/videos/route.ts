@@ -48,6 +48,7 @@ export async function POST(req: NextRequest){
         const videoData = {
             ...body,
             controls: body.controls ?? true,
+            uploadedBy: session.user.email,
             transformation: {
                 height:1920,
                 width: 1080,

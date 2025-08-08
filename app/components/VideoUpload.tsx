@@ -10,6 +10,8 @@ interface VdieoData{
     title: string,
     description: string;
     videoUrl: string;
+    likes:number;
+    views:number;
 }
 
 export default function VideoUpload(){
@@ -23,7 +25,9 @@ export default function VideoUpload(){
         defaultValues:{
             title:"",
             description:"",
-            videoUrl:""
+            videoUrl:"",
+            views:0,
+            likes:0
         }
     })
 
