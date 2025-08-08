@@ -26,7 +26,7 @@ export default function Dashboard(){
         <>
             <DashNav />
             <div className="flex flex-col md:flex-row items-start md:items-center justify-center gap-2 mt-4 px-4 pt-12">
-                <div className="w-full md:w-2/3">
+                <div className="w-full md:w-2/3 overflow-y-scroll h-screen">
                     <VideoFeed videos={videos} />
                 </div>
                 <div className="w-full md:w-1/3">
